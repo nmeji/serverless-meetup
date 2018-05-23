@@ -1,0 +1,8 @@
+version: '3'
+services:
+  serverless:
+    image: amaysim/serverless:1.27.1
+    env_file: .env
+    volumes:
+      - .:/opt/app
+    working_dir: /opt/app
