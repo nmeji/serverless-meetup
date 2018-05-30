@@ -1,0 +1,17 @@
+version: '3'
+services:
+  aws-sam-local:
+    image: cnadiminti/aws-sam-local:latest
+    working_dir: /opt/test
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/opt/test
+    ports:
+      - 3000:3000
+
+  serverless:
+    image: amaysim/serverless:1.27.1
+    working_dir: /opt/app
+    volumes:
+      - .:/opt/app
+    entrypoint: /usr/local/bin/sls
